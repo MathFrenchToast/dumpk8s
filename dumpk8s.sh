@@ -25,7 +25,7 @@ for line in $(kubectl get namespaces -o json | jq -r .items[].metadata.name)
 do
   echo "processing ns $line"
   mkdir -p ./$line  
-  for resstype in cm secret deployment service ingress job cronjobs pvc pv hpa ds
+  for resstype in cm secret deployment service ingress job cronjobs pvc pv hpa ds NetworkPolicy
   do
     kubectl -n $line get $resstype -o $format > $line/$resstype.yml  
   done
