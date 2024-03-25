@@ -25,7 +25,7 @@ cd $name
 # first cluster wide ressources
 for resstype in nodes pv 
   do
-    kubectl -n $line get $resstype -o $format > $line/$resstype.yml  
+    kubectl get $resstype -o $format > $resstype.yml  
   done
 
 # per namespace dump given ressources
